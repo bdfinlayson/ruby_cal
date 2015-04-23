@@ -1,3 +1,15 @@
+#!/usr/bin/env ruby
+
+input = ARGV
+
+q = input[0] #day
+m = input[1] #month
+y = input[2] #year
+
+output = `cal #{m} #{y}`
+
+puts output
+
 def zeller_congruency(q,m,y)
   q = q.to_i
   m = m.to_i
