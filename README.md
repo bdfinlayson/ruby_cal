@@ -5,10 +5,13 @@ Nashville Software School exercise for implementing Zeller's Congruency in Ruby
 The Unit 1 capstone for this course is the implementation of a subset of the Unix program, cal.
 
 ####Objectives
+
 * Practice with Arrays, Hashes, and Strings
 * Develop the logic of a non-trivial algorithm
 * Programming to meet a (changing) specification
+
 ####Requirements
+
 * Your program must have tests. These test may be as high-level (integration tests) or as low-level (unit tests) as you wish. I highly recommend a mix of tests.
 * You may not use any of the built-in Ruby classes that provide date, time, or calendar functionality.
 * You may not use exec, Kernel, etc. to shell out to any Unix programs.
@@ -16,7 +19,9 @@ The Unit 1 capstone for this course is the implementation of a subset of the Uni
 * You must commit your code at least once per day and push it to your github repository.
 * As a capstone project for the basic Ruby portion of the course, this should demonstrate your skills. Do not share code with your peers. You can help each other think about the problems, but don't help each other code.
 * Your program should accept any combination of months and years between 1800 and 3000.
+
 ####Suggested Implementation Order
+
 * You will find this (and all future) programming projects much easier if you take the time to break it down into smaller parts. I will suggest a breakdown that works well for me:
 
 * Implement Zeller's Congruence, with test for all of the special types of months/years.
