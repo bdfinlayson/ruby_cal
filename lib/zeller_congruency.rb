@@ -1,14 +1,5 @@
 #!/usr/bin/env ruby
 
-
-#class Zeller
-
-#output = `cal #{m} #{y}`
-
-#m = Month.new(month, year)
-
-#puts output
-
 def zeller_congruency(q,m,y)
 #input = ARGV
 
@@ -25,11 +16,11 @@ def zeller_congruency(q,m,y)
     y -= 1
   end
 
-  h = q + 13*(m+1)/5 + y%100 + y%100/4 + y/100/4 - 2*y/100
+  h = q + 13 * ( m + 1 ) / 5 + y % 100 + y % 100 / 4 + y / 100 / 4 - 2 * y / 100
   puts h % 7
   return h % 7
 end
-#end
+
 # h is the day of the week (0 = Saturday, 1 = Sunday, 2 = Monday, ..., 6 = Friday)
 # q is the day of the month
 # m is the month (3 = March, 4 = April, 5 = May, ..., 14 = February)

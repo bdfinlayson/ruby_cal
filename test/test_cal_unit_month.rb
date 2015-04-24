@@ -1,7 +1,8 @@
 require_relative 'test_helper'
-require_relative '../lib/month'
+require_relative '../lib/month_checker'
 
 class TestMonth < Minitest::Test
+
 
   def test_unit_month_0a_initializing_a_month_saves_values?
     m = Month.new(05, 2015)

@@ -7,7 +7,7 @@ class Month
   end
 
   def name
-    
+
   end
 
   def to_s
