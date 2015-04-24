@@ -1,10 +1,13 @@
 class Month
+  require_relative 'zeller_congruency'
   attr_reader :month, :year
+  MONTHS = %w[january february march april may june july august september october november december]
 
   def initialize(input)
     @month = input[0]
     @year = input[1]
-    puts "#{@month} #{year} from month class"
+    @day = zeller_congruency(01,@month,@year) 
+    puts "#{@day} from zeller to month class"
   end
 
   def name
