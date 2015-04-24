@@ -1,9 +1,10 @@
 class Month
   attr_reader :month, :year
 
-  def initialize(month, year)
-    @month = month
-    @year = year
+  def initialize(input)
+    @month = input[0]
+    @year = input[1]
+    puts "#{@month} #{year} from month class"
   end
 
   def name
