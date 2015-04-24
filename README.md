@@ -19,7 +19,6 @@ The Unit 1 capstone for this course is the implementation of a subset of the Uni
 * You must commit your code at least once per day and push it to your github repository.
 * As a capstone project for the basic Ruby portion of the course, this should demonstrate your skills. Do not share code with your peers. You can help each other think about the problems, but don't help each other code.
 * Your program should accept any combination of months and years between 1800 and 3000.
-
 ####Suggested Implementation Order
 
 * You will find this (and all future) programming projects much easier if you take the time to break it down into smaller parts. I will suggest a breakdown that works well for me:
@@ -66,6 +65,31 @@ No magic numbers:
 * to_s
 * is_leap_year?
 * if falls outside the allowable range, raises error in initializer
+
+#####Determining Leap Years
+* Every year that is exactly divisible by four is a leap year, except for years that are exactly divisible by 100, but these centurial years are leap years if they are exactly divisible by 400. For example, the years 1700, 1800, and 1900 are not leap years, but the year 2000 is
+#####Days of Month
+    Thirty days hath September,
+    April, June, and November.
+    All the rest have thirty-one,
+    Excepting February alone,
+    Which hath but twenty-eight days clear,
+    And twenty-nine in each leap year.
+
+    A year is divided into twelve months
+    No. Name  Length in days
+    1 January   31
+    2 February  28 or 29
+    3 March     31
+    4 April     30
+    5 May       31
+    6 June      30
+    7 July      31
+    8 August    31
+    9 September 30
+    10 October  31
+    11 November 30
+    12 December 31
 
 #### 3rd Class Option 1: Implementing Day Class
 * knows which month, day, and year it is
