@@ -2,10 +2,10 @@
 #require_relative 'lib/zeller_congruency.rb'
 require_relative 'lib/month_checker.rb'
 
-input = ARGV
+first, second = ARGV
 
-Month.new(input)
-puts "#{input} from cal.rb"
+Month.new(first, second)
+puts "#{first second} from cal.rb"
 
 #q = input[0] #day
 #m = input[1] #month
