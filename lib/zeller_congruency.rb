@@ -17,7 +17,6 @@ def zeller_congruency(q,m,y)
   end
 
   h = q + 13 * ( m + 1 ) / 5 + y % 100 + y % 100 / 4 + y / 100 / 4 - 2 * y / 100
-  puts h % 7
   return h % 7
 end
 
