@@ -13,7 +13,7 @@ months = %w[January February March April May June July August September October 
 desired_month = first.to_i - 1
 arr = []
 
-s = months[desired_month] + " " + second
+s = months[desired_month] + " " + m.year
 print s.center(20).rstrip + "\n"
 cal_month.each_slice(7) { |a| arr << a }
 print days.join(' ').center(20) + "\n"

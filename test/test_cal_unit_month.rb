@@ -67,4 +67,15 @@ class TestMonth < Minitest::Test
     assert_equal true, m.is_leap_year
   end
 
+  def test_unit_month_1d_initializes_when_passed_month_values_with_leading_zeroes?
+    m = Month.new("00004", "1804")
+    assert_equal 4, m.month.to_i
+  end
+
+  def test_unit_month_1e_initializes_when_passed_year_values_with_leading_zeroes?
+    m = Month.new("0000004", "00000001804")
+    assert_equal "1804", m.year
+  end
+
+
 end

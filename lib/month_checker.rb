@@ -11,7 +11,7 @@ class Month
       exit
     end
     @month = first
-    @year = second
+    @year = second.split('').drop_while { |x| x.to_i < 1 }.join('')
     @day = zeller_congruency(01,@month,@year)
     y = Year.new(@year)
     @is_leap_year = y.is_leap_year?
