@@ -16,8 +16,10 @@ def zeller_congruency(q,m,y)
     y -= 1
   end
 
-  h = q + 13 * ( m + 1 ) / 5 + y % 100 + y % 100 / 4 + y / 100 / 4 - 2 * y / 100
-  return h % 7
+  h = q + (13 * ( m + 1 ) / 5).floor + y % 100 + (y % 100 / 4).floor + (y / 100 / 4).floor - 2 * (y / 100).floor
+
+  h % 7
+
 end
 
 # h is the day of the week (0 = Saturday, 1 = Sunday, 2 = Monday, ..., 6 = Friday)

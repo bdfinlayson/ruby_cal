@@ -14,10 +14,10 @@ desired_month = first.to_i - 1
 arr = []
 
 s = months[desired_month] + " " + second
-print s.center(20) + "\n"
+print s.center(20).rstrip + "\n"
 cal_month.each_slice(7) { |a| arr << a }
 print days.join(' ').center(20) + "\n"
-arr.each { |a| print a.join(' ').center(20) + "\n" }
+arr.each { |a| print a.join(' ').center(20).rstrip + "\n" }
 
 
 #q = input[0] #day

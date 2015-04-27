@@ -1,25 +1,33 @@
 class Month
+  require_relative 'year_checker'
   require_relative 'zeller_congruency'
-  attr_reader :month, :year, :day
+  attr_reader :month, :year, :day, :year_checker
   MONTHS = %w[January February March April May June July August September October November December]
 
   def initialize(first, second)
+    if second.to_i > 3000 || second.to_i < 1800
+      puts "Year #{second} not in range 1800...3000\n\n"
+      exit
+    end
     @month = first
     @year = second
     @day = zeller_congruency(01,@month,@year)
+    @year_checker = Year.new(@year)
   end
 
-  def name
-    puts "Bryan is the man!"
+  def length
 
   end
 
   def to_string
-    start_day = @day
     desired_month = @month.to_i - 1
-    year = @year
     months = %w[January February March April May June July August September October November December]
     default_month = [' 1',' 2',' 3',' 4',' 5',' 6',' 7',' 8',' 9','10','11','12','13','14','15','16','17','18','19','20','21','22','23','24','25','26','27','28','29','30','31','  ','  ','  ','  ','  ','  ','  ','  ','  ','  ','  ']
+    #if @year_checker.is_leap_year? && /January|February/.match(months[desired_month])
+    #  start_day = @day += 1
+    #else
+    #  start_day = @day
+    #end
 
     #first, set the month arr for the correct number of days
     if /September|April|June|November/.match(months[desired_month])
@@ -29,7 +37,7 @@ class Month
     elsif /February/.match(months[desired_month])
       #if leap year, remove 31 and 30 and add 2 blank spaces
       #else, remove 31 through 29 and add 3 blank spaces
-      if year % 400 == 0
+      if @year_checker.is_leap_year?
         month_to_print = default_month.delete_if { |x| /31|30/.match(x) }
         2.times do |i|
           month_to_print <<  "  "
