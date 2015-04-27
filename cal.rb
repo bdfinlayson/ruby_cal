@@ -1,5 +1,4 @@
 #!/usr/bin/env ruby
-#require_relative 'lib/zeller_congruency.rb'
 require_relative 'lib/month_checker.rb'
 
 first, second = ARGV
@@ -19,14 +18,4 @@ cal_month.each_slice(7) { |a| arr << a }
 print days.join(' ').center(20) + "\n"
 arr.each { |a| print a.join(' ').center(20).rstrip + "\n" }
 
-
-#q = input[0] #day
-#m = input[1] #month
-#y = input[2] #year
-
-#zeller_congruency(q,m,y)
-
-#output = `cal #{m} #{y}`
-
-#puts output
 
