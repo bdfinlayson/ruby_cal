@@ -24,7 +24,7 @@ class TestMonth < Minitest::Test
 
   def test_unit_month_0d_raises_error_if_month_given_as_string?
     assert_raises ArgumentError do
-    Month.new("February", 2015)
+    Month.new("February", "2015")
     end
   end
 
@@ -76,6 +76,4 @@ class TestMonth < Minitest::Test
     m = Month.new("0000004", "00000001804")
     assert_equal "1804", m.year
   end
-
-
 end

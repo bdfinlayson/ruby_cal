@@ -6,7 +6,7 @@ class Year
   end
 
   def is_leap_year?
-    true if @year.to_i % 400 == 0 || @year.to_i % 4 == 0
+    @year.to_i % 400 == 0 || @year.to_i % 4 == 0 ? true : false
   end
 end
 

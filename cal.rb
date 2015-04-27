@@ -1,10 +1,16 @@
 #!/usr/bin/env ruby
 require_relative 'lib/month_checker.rb'
+require_relative 'lib/month_checker.rb'
 
 first, second = ARGV
 
-m = Month.new(first, second)
-cal_month = m.to_string
+if ARGV.length == 2
+  m = Month.new(first, second)
+  cal_month = m.to_string
+else
+  m = Year.new(first)
+  cal_month = m.to_string
+end
 
 #then, print the month
 days = %w[Su Mo Tu We Th Fr Sa]

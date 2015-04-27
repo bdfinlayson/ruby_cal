@@ -5,20 +5,23 @@ class Month
   MONTHS = %w[January February March April May June July August September October November December]
 
   def initialize(first, second)
-    if second.to_i > 3000 || second.to_i < 1800 || first.to_i > 12 || /\D/.match(first) || /\D/.match(second)
+    # 2 args: if month or year too high or low or non-integer should error out
+    if (first && second) && (second.to_i > 3000 || second.to_i < 1800 || /\D/.match(second))
       puts "Year #{second} not in range 1800...3000\n\n"
       raise ArgumentError
       exit
+      #2 args: if month is invalid, error out
+    elsif (first && second) && (first.to_i > 12 || first.to_i < 1 || /\D/.match(first))
+      raise ArgumentError
+      exit
+      # 1 arg: if between the range of 1800 and 3000, continue and send to year class
+    else
+      @month = first
+      @year = second.split('').drop_while { |x| x.to_i < 1 }.join('') if second
+      @day = zeller_congruency(01,@month,@year)
+      y = Year.new(@year)
+      @is_leap_year = y.is_leap_year?
     end
-    @month = first
-    @year = second.split('').drop_while { |x| x.to_i < 1 }.join('')
-    @day = zeller_congruency(01,@month,@year)
-    y = Year.new(@year)
-    @is_leap_year = y.is_leap_year?
-  end
-
-  def length
-
   end
 
   def to_string
