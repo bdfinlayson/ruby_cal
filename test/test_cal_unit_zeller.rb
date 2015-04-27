@@ -112,6 +112,6 @@ DAYS = {
 
   def test_unit_zeller_5c_return_Saturday_for_December_1900?
     day = zeller_congruency(01,12,1900)
-    assert_equal 6, day
+    assert_equal 0, day
   end
 end

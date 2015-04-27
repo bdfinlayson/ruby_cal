@@ -18,6 +18,7 @@ def zeller_congruency(q,m,y)
 
   h = q + (13 * ( m + 1 ) / 5).floor + y % 100 + (y % 100 / 4).floor + (y / 100 / 4).floor - 2 * (y / 100).floor
 
+
   h % 7
 
 end
