@@ -17,6 +17,69 @@ EOS
     assert_equal expected, output
   end
 
+  def test_unit_month_0b_raises_error_if_month_too_high_is_invalid?
+    output = `./cal.rb 13 2015`
+    expected = <<EOS
+13 is an invalid month.
+
+EOS
+    assert_equal expected, output
+  end
+
+  def test_unit_month_0c_raises_error_if_negative_month_is_invalid?
+    output = `./cal.rb -1 2015`
+    expected = <<EOS
+-1 is an invalid month.
+
+EOS
+    assert_equal expected, output
+  end
+
+  def test_unit_month_0d_raises_error_if_month_given_as_string?
+    output = `./cal.rb February 2015`
+    expected = <<EOS
+Month numbers only, please.
+
+EOS
+    assert_equal expected, output
+  end
+
+  def test_unit_month_0e_raises_error_if_year_too_high?
+    output = `./cal.rb 05 3001`
+    expected = <<EOS
+Year 3001 not in range 1800...3000
+
+EOS
+    assert_equal expected, output
+  end
+
+  def test_unit_month_0f_raises_error_if_year_too_low?
+    output = `./cal.rb 12 1799`
+    expected = <<EOS
+Year 1799 not in range 1800...3000
+
+EOS
+    assert_equal expected, output
+  end
+
+  def test_unit_month_0g_raises_error_if_negative_year_given?
+   output = `./cal.rb 12 -1`
+   expected = <<EOS
+Year -1 not in range 1800...3000
+
+EOS
+   assert_equal expected, output
+  end
+
+  def test_unit_month_0h_raises_error_if_year_given_as_string?
+    output = `./cal.rb 04 nineteen eighty five`
+    expected = <<EOS
+Enter years in number format YYYY, please.
+
+EOS
+    assert_equal expected, output
+  end
+
   def test_integration_1a_throws_error_if_date_is_below_allowable_range?
     output = `./cal.rb 12 1799`
     expected = <<EOS
