@@ -4,6 +4,7 @@ require_relative 'lib/month_checker.rb'
 
 first, second = ARGV
 
+#refactor as guard class
 if ARGV.length >= 2
   if (first && second) && (second.to_i > 3000 || second.to_i < 1800 || /\D/.match(second))
     if /\D/.match(second) && !/-/.match(second)
@@ -32,15 +33,17 @@ else
 end
 
 #then, print the month
-days = %w[Su Mo Tu We Th Fr Sa]
-months = %w[January February March April May June July August September October November December]
-desired_month = first.to_i - 1
-arr = []
+#this should just call then print a method
+#days = %w[Su Mo Tu We Th Fr Sa]
+#months = %w[January February March April May June July August September October November December]
+#desired_month = first.to_i - 1
+#arr = []
 
-s = months[desired_month] + " " + m.year
-print s.center(20).rstrip + "\n"
-cal_month.each_slice(7) { |a| arr << a }
-print days.join(' ').center(20) + "\n"
-arr.each { |a| print a.join(' ').center(20).rstrip + "\n" }
+#s = months[desired_month] + " " + m.year
+#print s.center(20).rstrip + "\n"
+#cal_month.each_slice(7) { |a| arr << a }
+#print days.join(' ').center(20) + "\n"
+#arr.each { |a| print a.join(' ').center(20).rstrip + "\n" }
 
+print cal_month
 

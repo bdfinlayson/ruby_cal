@@ -17,7 +17,7 @@ class TestMonth < Minitest::Test
 
   def test_unit_month_1b_initializes_day_with_zeller?
     m = Month.new("02", "2000")
-    assert_equal 3, m.day
+    assert_equal 3, m.start_day
   end
 
   def test_unit_month_1c_initializes_leap_year_with_Year_class?
