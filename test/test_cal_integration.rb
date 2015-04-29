@@ -174,7 +174,6 @@ EOS
   end
 
   def test_integration_3a_outputs_a_year?
-    skip
     output = `./cal.rb 2010`
     expected = <<EOS
                              2010
@@ -186,7 +185,7 @@ Su Mo Tu We Th Fr Sa  Su Mo Tu We Th Fr Sa  Su Mo Tu We Th Fr Sa
 10 11 12 13 14 15 16  14 15 16 17 18 19 20  14 15 16 17 18 19 20
 17 18 19 20 21 22 23  21 22 23 24 25 26 27  21 22 23 24 25 26 27
 24 25 26 27 28 29 30  28                    28 29 30 31
-31                                          
+31
        April                  May                   June
 Su Mo Tu We Th Fr Sa  Su Mo Tu We Th Fr Sa  Su Mo Tu We Th Fr Sa
              1  2  3                     1         1  2  3  4  5
@@ -194,7 +193,7 @@ Su Mo Tu We Th Fr Sa  Su Mo Tu We Th Fr Sa  Su Mo Tu We Th Fr Sa
 11 12 13 14 15 16 17   9 10 11 12 13 14 15  13 14 15 16 17 18 19
 18 19 20 21 22 23 24  16 17 18 19 20 21 22  20 21 22 23 24 25 26
 25 26 27 28 29 30     23 24 25 26 27 28 29  27 28 29 30
-                      30 31                 
+                      30 31
         July                 August              September
 Su Mo Tu We Th Fr Sa  Su Mo Tu We Th Fr Sa  Su Mo Tu We Th Fr Sa
              1  2  3   1  2  3  4  5  6  7            1  2  3  4
@@ -210,15 +209,13 @@ Su Mo Tu We Th Fr Sa  Su Mo Tu We Th Fr Sa  Su Mo Tu We Th Fr Sa
 10 11 12 13 14 15 16  14 15 16 17 18 19 20  12 13 14 15 16 17 18
 17 18 19 20 21 22 23  21 22 23 24 25 26 27  19 20 21 22 23 24 25
 24 25 26 27 28 29 30  28 29 30              26 27 28 29 30 31
-31                                          
-
+31
 EOS
 
     assert_equal expected, output
   end
 
   def test_integration_3b_leap_year_prints_correctly?
-    skip
     output = `./cal.rb 1804`
     expected = <<EOS
                              1804
@@ -255,7 +252,6 @@ Su Mo Tu We Th Fr Sa  Su Mo Tu We Th Fr Sa  Su Mo Tu We Th Fr Sa
 21 22 23 24 25 26 27  18 19 20 21 22 23 24  16 17 18 19 20 21 22
 28 29 30 31           25 26 27 28 29 30     23 24 25 26 27 28 29
                                             30 31
-
 EOS
     assert_equal output, expected
   end

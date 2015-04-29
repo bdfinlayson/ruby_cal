@@ -20,7 +20,7 @@ class Year
     second_row = Month.new(second_month, @year).to_a
     third_row = Month.new(third_month, @year).to_a
     mixed_rows = first_row.zip(second_row, third_row)
-    mixed_rows.collect{ |x| x.insert(1," ").insert(3," ").join(" ").rstrip}.join("\n")
+    mixed_rows.collect{ |x| x.insert(1,"X").insert(3,"X").join(" ").delete("X").rstrip}.join("\n")
   end
 
 
