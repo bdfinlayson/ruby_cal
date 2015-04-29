@@ -40,7 +40,7 @@ class Month
   end
 
   def make_weeks
-    arr = []
+    arr_of_weeks = []
     default_month = [' 1',' 2',' 3',' 4',' 5',' 6',' 7',' 8',' 9','10','11','12','13','14','15','16','17','18','19','20','21','22','23','24','25','26','27','28','29','30','31','  ','  ','  ','  ','  ','  ','  ','  ','  ','  ','  ']
 
     if /September|April|June|November/.match(month_finder)
@@ -88,17 +88,26 @@ class Month
       end
     end
 
-    weeks = ""
-    month_to_print.each_slice(7) { |a| arr << a }
-    arr.each { |a|  weeks << a.join(' ').center(20).rstrip + "\n" }
-    weeks
+    #weeks = ""
+    month_to_print.each_slice(7) { |a| arr_of_weeks << a }
+    arr_of_weeks
+  end
+
+  def to_a
+    body = []
+    body << "#{month_finder}".center(20)
+    body << "#{make_days}"
+    body.concat(make_weeks)
   end
 
   def to_string
+    weeks = ""
+    arr_of_weeks = make_weeks
+    arr_of_weeks.each { |a|  weeks << a.join(' ').center(20).rstrip + "\n" }
     month =
 "#{make_header}
 #{make_days}
-#{make_weeks}"
+#{weeks}"
 
     month
   end

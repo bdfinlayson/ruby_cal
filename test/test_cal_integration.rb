@@ -174,6 +174,7 @@ EOS
   end
 
   def test_integration_3a_outputs_a_year?
+    skip
     output = `./cal.rb 2010`
     expected = <<EOS
                              2010
@@ -217,6 +218,7 @@ EOS
   end
 
   def test_integration_3b_leap_year_prints_correctly?
+    skip
     output = `./cal.rb 1804`
     expected = <<EOS
                              1804

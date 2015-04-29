@@ -1,3 +1,5 @@
+require_relative 'month_checker'
+
 class Year
   attr_accessor :year
 
@@ -11,6 +13,46 @@ class Year
 
   def parse_year
     @year.split('').drop_while { |x| x.to_i < 1 }.join('')
+  end
+
+  def assemble_month_rows(first_month, second_month, third_month)
+    first_row = Month.new(first_month, @year).to_a
+    second_row = Month.new(second_month, @year).to_a
+    third_row = Month.new(third_month, @year).to_a
+    mixed_rows = first_row.zip(second_row, third_row)
+    mixed_rows.collect{ |x| x.join(" ").rstrip}.join("\n")
+  end
+
+#  def month_assembler(i)
+#    months_arr = []
+#    months_arr << Month.new(i,@year).to_a
+#    months_arr
+#  end
+#
+#  def to_string
+#    months_arr = []
+#    12.times do |i|
+#      months_arr << month_assembler(i)
+#    end
+#    body = []
+#    (1..12).each_cons(3) { |num| body << months_arr[num] }
+#    body
+#   # body = "#{header}\n\n"
+#    
+#  end
+
+  def to_string
+    body = "#{header}\n\n"
+    body << "#{assemble_month_rows(1,2,3)}\n"
+    body << "#{assemble_month_rows(4,5,6)}\n"
+    body << "#{assemble_month_rows(7,8,9)}\n"
+    body << "#{assemble_month_rows(10,11,12)}\n"
+  end
+
+  private
+
+  def header
+    "#{@year}".center(62).rstrip
   end
 end
 
