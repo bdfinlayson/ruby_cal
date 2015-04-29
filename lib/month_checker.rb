@@ -66,29 +66,13 @@ class Month
       6.times do |i|
         month_to_print.unshift("  ").pop
       end
-    elsif @start_day == 6
-      5.times do |i|
-        month_to_print.unshift("  ").pop
-      end
-    elsif @start_day == 5
-      4.times do |i|
-        month_to_print.unshift("  ").pop
-      end
-    elsif @start_day == 4
-      3.times do |i|
-        month_to_print.unshift("  ").pop
-      end
-    elsif @start_day == 3
-      2.times do |i|
-        month_to_print.unshift("  ").pop
-      end
-    elsif @start_day == 2
-      1.times do |i|
+    elsif @start_day == 6||5||4||3||2
+      num = @start_day -= 1
+      num.times do |i|
         month_to_print.unshift("  ").pop
       end
     end
 
-    #weeks = ""
     month_to_print.each_slice(7) { |a| arr_of_weeks << a }
     arr_of_weeks
   end
@@ -105,9 +89,9 @@ class Month
     arr_of_weeks = make_weeks
     arr_of_weeks.each { |a|  weeks << a.join(' ').center(20).rstrip + "\n" }
     month =
-"#{make_header}
-#{make_days}
-#{weeks}"
+      "#{make_header}
+    #{make_days}
+    #{weeks}"
 
     month
   end

@@ -23,23 +23,6 @@ class Year
     mixed_rows.collect{ |x| x.join(" ").rstrip}.join("\n")
   end
 
-#  def month_assembler(i)
-#    months_arr = []
-#    months_arr << Month.new(i,@year).to_a
-#    months_arr
-#  end
-#
-#  def to_string
-#    months_arr = []
-#    12.times do |i|
-#      months_arr << month_assembler(i)
-#    end
-#    body = []
-#    (1..12).each_cons(3) { |num| body << months_arr[num] }
-#    body
-#   # body = "#{header}\n\n"
-#    
-#  end
 
   def to_string
     body = "#{header}\n\n"
