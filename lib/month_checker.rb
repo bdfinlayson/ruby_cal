@@ -66,11 +66,13 @@ class Month
       6.times do |i|
         month_to_print.unshift("  ").pop
       end
-    elsif @start_day == 6||5||4||3||2
+    elsif [6,5,4,3,2].include?(@start_day)
       num = @start_day -= 1
       num.times do |i|
         month_to_print.unshift("  ").pop
       end
+    else
+      month_to_print = default_month
     end
 
     month_to_print.each_slice(7) { |a| arr_of_weeks << a }
