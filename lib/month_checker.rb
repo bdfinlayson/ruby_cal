@@ -90,12 +90,7 @@ class Month
     weeks = ""
     arr_of_weeks = make_weeks
     arr_of_weeks.each { |a|  weeks << a.join(' ').center(20).rstrip + "\n" }
-    month =
-"#{make_header}
-#{make_days}
-#{weeks}"
 
-    month
+    "#{make_header}\n#{make_days}\n#{weeks}"
   end
-
 end
