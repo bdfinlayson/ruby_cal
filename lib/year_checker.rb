@@ -8,7 +8,15 @@ class Year
   end
 
   def is_leap_year?
-    @year.to_i % 400 == 0 || @year.to_i % 4 == 0 ? true : false
+    if @year.to_i % 400 == 0
+      true
+    elsif @year.to_i % 100 == 0
+      false
+    elsif @year.to_i % 4 == 0
+      true
+    else
+      false
+    end
   end
 
   def parse_year

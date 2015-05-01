@@ -1,5 +1,17 @@
 require_relative 'test_helper'
 
+def unix_whitespace_eliminator lines
+  output = ""
+  lines.each_line do |line|
+    output.concat(line.rstrip + "\n")
+  end
+  return output
+end
+
+def random_year_generator
+  rand(1800..3000)
+end
+
 class TestCalIntegration < Minitest::Test
 
   def test_integration_0a_cal_working?
@@ -255,4 +267,339 @@ Su Mo Tu We Th Fr Sa  Su Mo Tu We Th Fr Sa  Su Mo Tu We Th Fr Sa
 EOS
     assert_equal output, expected
   end
+
+  def test_integration_4a_program_exits_normally_on_invalid_input_true?
+    shell_output = `./cal.rb 00 1800`
+    assert_equal(true, $?.exited?)
+  end
+
+  def test_integration_4b_program_exits_normally_on_valid_input_true?
+    shell_output = `./cal.rb 10 1800`
+    assert_equal(true, $?.exited?)
+  end
+
+  def test_integration_5a_unix
+    expected_output = unix_whitespace_eliminator `cal 1 2000`
+    assert_equal(expected_output, `./cal.rb 1 2000`)
+  end
+
+  def test_integration_5b_unix
+    expected_output = unix_whitespace_eliminator `cal 2 2000`
+    assert_equal(expected_output, `./cal.rb 2 2000`)
+  end
+
+  def test_integration_5c_unix
+    expected_output = unix_whitespace_eliminator `cal 3 2000`
+    assert_equal(expected_output, `./cal.rb 3 2000`)
+  end
+
+  def test_integration_5d_unix
+    expected_output = unix_whitespace_eliminator `cal 4 2000`
+    assert_equal(expected_output, `./cal.rb 4 2000`)
+  end
+
+  def test_integration_5e_unix
+    expected_output = unix_whitespace_eliminator `cal 5 2000`
+    assert_equal(expected_output, `./cal.rb 5 2000`)
+  end
+
+  def test_integration_5f_unix
+    expected_output = unix_whitespace_eliminator `cal 6 2000`
+    assert_equal(expected_output, `./cal.rb 6 2000`)
+  end
+
+  def test_integration_5g_unix
+    expected_output = unix_whitespace_eliminator `cal 7 2000`
+    assert_equal(expected_output, `./cal.rb 7 2000`)
+  end
+
+  def test_integration_5h_unix
+    expected_output = unix_whitespace_eliminator `cal 8 2000`
+    assert_equal(expected_output, `./cal.rb 8 2000`)
+  end
+
+  def test_integration_5i_unix
+    expected_output = unix_whitespace_eliminator `cal 9 2000`
+    assert_equal(expected_output, `./cal.rb 9 2000`)
+  end
+
+  def test_integration_5j_unix
+    expected_output = unix_whitespace_eliminator `cal 10 2000`
+    assert_equal(expected_output, `./cal.rb 10 2000`)
+  end
+
+  def test_integration_5k_unix
+    expected_output = unix_whitespace_eliminator `cal 11 2000`
+    assert_equal(expected_output, `./cal.rb 11 2000`)
+  end
+
+  def test_integration_5l_unix
+    expected_output = unix_whitespace_eliminator `cal 12 2000`
+    assert_equal(expected_output, `./cal.rb 12 2000`)
+  end
+
+  def test_integration_6a_unix
+    expected_output = unix_whitespace_eliminator `cal 1950`
+    assert_equal(expected_output, `./cal.rb 1950`)
+  end
+  def test_integration_6b_unix
+    expected_output = unix_whitespace_eliminator `cal 1920`
+    assert_equal(expected_output, `./cal.rb 1920`)
+  end
+
+  def test_integration_6c_unix
+    expected_output = unix_whitespace_eliminator `cal 1900`
+    assert_equal(expected_output, `./cal.rb 1900`)
+  end
+
+  def test_integration_6d_unix
+    expected_output = unix_whitespace_eliminator `cal 1890`
+    assert_equal(expected_output, `./cal.rb 1890`)
+  end
+
+  def test_integration_6e_unix
+    expected_output = unix_whitespace_eliminator `cal 1880`
+    assert_equal(expected_output, `./cal.rb 1880`)
+  end
+
+  def test_integration_6f_unix
+    expected_output = unix_whitespace_eliminator `cal 1830`
+    assert_equal(expected_output, `./cal.rb 1830`)
+  end
+
+  def test_integration_6g_unix
+    expected_output = unix_whitespace_eliminator `cal 1816`
+    assert_equal(expected_output, `./cal.rb 1816`)
+  end
+
+  def test_integration_6h_unix
+    expected_output = unix_whitespace_eliminator `cal 1808`
+    assert_equal(expected_output, `./cal.rb 1808`)
+  end
+
+  def test_integration_6i_unix
+    expected_output = unix_whitespace_eliminator `cal 1804`
+    assert_equal(expected_output, `./cal.rb 1804`)
+  end
+
+  def test_integration_6j_unix
+    expected_output = unix_whitespace_eliminator `cal 1808`
+    assert_equal(expected_output, `./cal.rb 1808`)
+  end
+
+  def test_integration_6k_unix
+    expected_output = unix_whitespace_eliminator `cal 1812`
+    assert_equal(expected_output, `./cal.rb 1812`)
+  end
+
+  def test_integration_6l_unix
+    expected_output = unix_whitespace_eliminator `cal 1816`
+    assert_equal(expected_output, `./cal.rb 1816`)
+  end
+
+  def test_integration_6m_unix
+    expected_output = unix_whitespace_eliminator `cal 2 1900`
+    assert_equal(expected_output, `./cal.rb 2 1900`)
+  end
+
+  def test_random_year_1
+    random_year = random_year_generator
+    expected_output = unix_whitespace_eliminator `cal #{random_year}`
+    assert_equal(expected_output, `./cal.rb #{random_year}`)
+  end
+
+
+  def test_random_year_2
+    random_year = random_year_generator
+    expected_output = unix_whitespace_eliminator `cal #{random_year}`
+    assert_equal(expected_output, `./cal.rb #{random_year}`)
+  end
+
+  def test_random_year_3
+    random_year = random_year_generator
+    expected_output = unix_whitespace_eliminator `cal #{random_year}`
+    assert_equal(expected_output, `./cal.rb #{random_year}`)
+  end 
+
+  def test_random_year_4
+    random_year = random_year_generator
+    expected_output = unix_whitespace_eliminator `cal #{random_year}`
+    assert_equal(expected_output, `./cal.rb #{random_year}`)
+  end
+
+  def test_random_year_5
+    random_year = random_year_generator
+    expected_output = unix_whitespace_eliminator `cal #{random_year}`
+    assert_equal(expected_output, `./cal.rb #{random_year}`)
+  end
+
+  def test_random_year_6
+    random_year = random_year_generator
+    expected_output = unix_whitespace_eliminator `cal #{random_year}`
+    assert_equal(expected_output, `./cal.rb #{random_year}`)
+  end
+
+  def test_random_year_7
+    random_year = random_year_generator
+    expected_output = unix_whitespace_eliminator `cal #{random_year}`
+    assert_equal(expected_output, `./cal.rb #{random_year}`)
+  end
+
+  def test_random_year_8
+    random_year = random_year_generator
+    expected_output = unix_whitespace_eliminator `cal #{random_year}`
+    assert_equal(expected_output, `./cal.rb #{random_year}`)
+  end
+
+  def test_random_year_9
+    random_year = random_year_generator
+    expected_output = unix_whitespace_eliminator `cal #{random_year}`
+    assert_equal(expected_output, `./cal.rb #{random_year}`)
+  end
+
+  def test_random_year_10
+    random_year = random_year_generator
+    expected_output = unix_whitespace_eliminator `cal #{random_year}`
+    assert_equal(expected_output, `./cal.rb #{random_year}`)
+  end
+
+  def test_random_year_11
+    random_year = random_year_generator
+    expected_output = unix_whitespace_eliminator `cal #{random_year}`
+    assert_equal(expected_output, `./cal.rb #{random_year}`)
+  end
+
+  def test_random_year_12
+    random_year = random_year_generator
+    expected_output = unix_whitespace_eliminator `cal #{random_year}`
+    assert_equal(expected_output, `./cal.rb #{random_year}`)
+  end
+
+  def test_random_year_13
+    random_year = random_year_generator
+    expected_output = unix_whitespace_eliminator `cal #{random_year}`
+    assert_equal(expected_output, `./cal.rb #{random_year}`)
+  end
+
+  def test_random_year_14
+    random_year = random_year_generator
+    expected_output = unix_whitespace_eliminator `cal #{random_year}`
+    assert_equal(expected_output, `./cal.rb #{random_year}`)
+  end
+
+  def test_random_year_15
+    random_year = random_year_generator
+    expected_output = unix_whitespace_eliminator `cal #{random_year}`
+    assert_equal(expected_output, `./cal.rb #{random_year}`)
+  end
+
+  def test_random_year_16
+    random_year = random_year_generator
+    expected_output = unix_whitespace_eliminator `cal #{random_year}`
+    assert_equal(expected_output, `./cal.rb #{random_year}`)
+  end
+
+  def test_random_year_17
+    random_year = random_year_generator
+    expected_output = unix_whitespace_eliminator `cal #{random_year}`
+    assert_equal(expected_output, `./cal.rb #{random_year}`)
+  end
+
+  def test_random_year_18
+    random_year = random_year_generator
+    expected_output = unix_whitespace_eliminator `cal #{random_year}`
+    assert_equal(expected_output, `./cal.rb #{random_year}`)
+  end
+
+  def test_random_year_19
+    random_year = random_year_generator
+    expected_output = unix_whitespace_eliminator `cal #{random_year}`
+    assert_equal(expected_output, `./cal.rb #{random_year}`)
+  end
+
+  def test_random_year_20
+    random_year = random_year_generator
+    expected_output = unix_whitespace_eliminator `cal #{random_year}`
+    assert_equal(expected_output, `./cal.rb #{random_year}`)
+  end
+
+  def test_random_year_21
+    random_year = random_year_generator
+    expected_output = unix_whitespace_eliminator `cal #{random_year}`
+    assert_equal(expected_output, `./cal.rb #{random_year}`)
+  end
+
+  def test_random_year_22
+    random_year = random_year_generator
+    expected_output = unix_whitespace_eliminator `cal #{random_year}`
+    assert_equal(expected_output, `./cal.rb #{random_year}`)
+  end
+
+  def test_random_year_23
+    random_year = random_year_generator
+    expected_output = unix_whitespace_eliminator `cal #{random_year}`
+    assert_equal(expected_output, `./cal.rb #{random_year}`)
+  end
+
+  def test_random_year_24
+    random_year = random_year_generator
+    expected_output = unix_whitespace_eliminator `cal #{random_year}`
+    assert_equal(expected_output, `./cal.rb #{random_year}`)
+  end
+
+
+  def test_random_year_25
+    random_year = random_year_generator
+    expected_output = unix_whitespace_eliminator `cal #{random_year}`
+    assert_equal(expected_output, `./cal.rb #{random_year}`)
+  end
+
+
+  def test_random_year_26
+    random_year = random_year_generator
+    expected_output = unix_whitespace_eliminator `cal #{random_year}`
+    assert_equal(expected_output, `./cal.rb #{random_year}`)
+  end
+
+
+  def test_random_year_27
+    random_year = random_year_generator
+    expected_output = unix_whitespace_eliminator `cal #{random_year}`
+    assert_equal(expected_output, `./cal.rb #{random_year}`)
+  end
+
+
+  def test_random_year_28
+    random_year = random_year_generator
+    expected_output = unix_whitespace_eliminator `cal #{random_year}`
+    assert_equal(expected_output, `./cal.rb #{random_year}`)
+  end
+
+
+  def test_random_year_29
+    random_year = random_year_generator
+    expected_output = unix_whitespace_eliminator `cal #{random_year}`
+    assert_equal(expected_output, `./cal.rb #{random_year}`)
+  end
+
+
+  def test_random_year_30
+    random_year = random_year_generator
+    expected_output = unix_whitespace_eliminator `cal #{random_year}`
+    assert_equal(expected_output, `./cal.rb #{random_year}`)
+  end
+
+
+  def test_random_year_31
+    random_year = random_year_generator
+    expected_output = unix_whitespace_eliminator `cal #{random_year}`
+    assert_equal(expected_output, `./cal.rb #{random_year}`)
+  end
+
+  def test_random_year_32
+    random_year = random_year_generator
+    expected_output = unix_whitespace_eliminator `cal #{random_year}`
+    assert_equal(expected_output, `./cal.rb #{random_year}`)
+  end
+
 end

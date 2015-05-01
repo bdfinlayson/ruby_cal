@@ -8,7 +8,6 @@ class Input_Parser
     @second = input[0][1]
   end
 
-
   def check_input_has_one_arg?
     true if @second.nil?
   end
